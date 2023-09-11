@@ -19,7 +19,9 @@ const resolvers = {
 			return await fastMove.find({});
 		},
 		user: async (parent, { userID }) => {
-			return await User.findOne({ _id: userID }).populate("pokemon");
+			return await User.findOne({ _id: userID })
+				//.populate("pokemon")
+				.populate({ path: "pokemon", populate: { path: "fastMove chargedMoves" } });
 		},
 	},
 	Mutation: {
@@ -45,7 +47,7 @@ const resolvers = {
 			pokemon.chargedMoves.push(chargedMoves);
 			pokemon.save();
 
-			return await User.findOneAndUpdate({ _id: userID }, { $addToSet: { pokemon: pokemon._id } }, { new: true });
+			return await User.findOneAndUpdate({ _id: userID }, { $addToSet: { pokemon: pokemon._id } }, { new: true }).populate({ path: "pokemon", populate: { path: "fastMove chargedMoves" } });
 		},
 	},
 };
