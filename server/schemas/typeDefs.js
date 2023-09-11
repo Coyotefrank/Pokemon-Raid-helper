@@ -12,7 +12,7 @@ type basePokemon{
 
 type chargedMove{
     _id: ID
-    critical_chance: Int
+    critical_chance: Float
     duration: Int
     energy_delta: Int
     move_id: Int

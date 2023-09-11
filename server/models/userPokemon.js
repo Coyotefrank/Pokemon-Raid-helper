@@ -28,7 +28,7 @@ const userPokemonSchema = new Schema({
 		unique: false,
 	},
 	type: [String],
-	fastMove: { type: [Schema.Types.ObjectId], ref: "fastMoves" },
+	fastMove: { type: [Schema.Types.ObjectId], ref: "fastMove" },
 	chargedMoves: { type: [Schema.Types.ObjectId], ref: "chargedMove" },
 });
 
