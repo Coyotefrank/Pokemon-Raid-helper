@@ -12,7 +12,7 @@ type basePokemon{
 
 type chargedMove{
     _id: ID
-    critical_chance: Int
+    critical_chance: Float
     duration: Int
     energy_delta: Int
     move_id: Int
@@ -75,13 +75,13 @@ type Query{
     fastmoves: [fastMove]
     basepokemonmove(pokemonname: String!): basePokemonMoves
     basepokemonmoves: [basePokemonMoves]
-    user(userId: ID!): User
+    user(userID: ID!): User
 }
 
 type Mutation{
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addPokemon(pokemon_name: String!, att: Int!, def: Int!, sta: Int!, pokemon_id: Int!, type: [String]!, fastMove: [ID]!, chargedMoves: [ID]!): User
+    addPokemon(userID: ID!, pokemon_name: String!, att: Int!, def: Int!, sta: Int!, pokemon_id: Int!, type: [String]!, fastMove: [ID!], chargedMoves: [ID!]): User
 
 }`;
 
