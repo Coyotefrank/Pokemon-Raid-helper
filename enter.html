@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/autocomplete.js@0.40.1/dist/autocomplete.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.40.1/dist/autocomplete.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +17,8 @@
     <div class="content">
         <div class="box">
             <h2>Add pokemon</h2>
-            <p>pokemon search</p>
+            <input type="text" id="input-box" placeholder="search for a POKEMON" autocomplete="off">
+            <button>search</button>
         </div>
         <div class="box">
             <h2>Your Pokemon</h2>
