@@ -13,7 +13,11 @@
 	"license": "ISC",
 	"dependencies": {
 		"@apollo/server": "^4.7.1",
+<<<<<<< HEAD
 		"autocomplete.js": "^0.38.1",
+=======
+		"antd": "^5.9.0",
+>>>>>>> 4fa11bd329a003a178a38e20f74cd7f84df7a17a
 		"express": "^4.17.2",
 		"graphql": "^16.6.0",
 		"mongoose": "^7.0.2"
