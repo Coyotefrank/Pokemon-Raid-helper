@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/autocomplete.js@0.40.1/dist/autocomplete.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.40.1/dist/autocomplete.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="stats.js"></script>
+
+
 </head>
 <body>
     <div class="navbar">
@@ -17,16 +18,25 @@
     <div class="content">
         <div class="box">
             <h2>Add pokemon</h2>
-            <button id="addPokemon">Add</button>
-            <input type="text" id="myInput" placeholder="search for a POKEMON" autocomplete="off">
-            <div id="autocomplete-list-wrapper"></div>
+            <p>pokemon search</p>
         </div>
         <div class="box">
             <h2>Your Pokemon</h2>
-            <ul id="pokemonList"></ul>
+
+            <div class="statsMenu">
+                <select id="pokemonDropdown">
+                    <option value="">No Pokemon Selected</option>
+                    <option value="Pikachu">Pikachu</option>
+                    <option value="Charizard">Charizard</option>
+                </select>
+                <button id="viewStats">View Stats</button>
+                <div id="pokemonStats"></div> 
+            </div>
+
+            <p>added pokemon</p>    
         </div>
-        <button class="proceed-button">Proceed</button>
      </div>
+    
+     
 </body>
-<script src="./autocomplete.js"></script>
 </html>
