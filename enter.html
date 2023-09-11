@@ -15,15 +15,17 @@
         <a href="login.html" class="login-button">Sign Up / Login</a>
     </div>
     <div class="content">
-        <div id="autocomplete-wrapper"class="box">
+        <div class="box">
             <h2>Add pokemon</h2>
-            <button>search</button>
+            <button id="addPokemon">Add</button>
             <input type="text" id="myInput" placeholder="search for a POKEMON" autocomplete="off">
+            <div id="autocomplete-list-wrapper"></div>
         </div>
         <div class="box">
             <h2>Your Pokemon</h2>
-            <p>added pokemon</p>
+            <ul id="pokemonList"></ul>
         </div>
+        <button class="proceed-button">Proceed</button>
      </div>
 </body>
 <script src="./autocomplete.js"></script>
