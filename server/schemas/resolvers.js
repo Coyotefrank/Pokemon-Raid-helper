@@ -18,14 +18,14 @@ const resolvers = {
 		fastmoves: async () => {
 			return await fastMove.find({});
 		},
-		user: async (parent, { userId }) => {
-			return await User.findOne({ _id: userId }).populate("pokemon");
+		user: async (parent, { userID }) => {
+			return await User.findOne({ _id: userID }).populate("pokemon");
 		},
 	},
 	Mutation: {
 		addUser: async (parent, { username, email, password }) => {
 			const user = await User.create({ username, email, password });
-			const token = signToken(profile);
+			const token = signToken(user);
 			return { token, user };
 		},
 		login: async (parent, { email, password }) => {
@@ -39,13 +39,13 @@ const resolvers = {
 			const token = signToken(user);
 			return { token, user };
 		},
-		addPokemon: async (parent, { pokemon_name, att, def, sta, pokemon_id, type, fastMove, chargedMoves }, context) => {
+		addPokemon: async (parent, { userID, pokemon_name, att, def, sta, pokemon_id, type, fastMove, chargedMoves }, context) => {
 			const pokemon = await userPokemon.create({ pokemon_name, att, def, sta, pokemon_id, type });
 			pokemon.fastMove.push(fastMove);
 			pokemon.chargedMoves.push(chargedMoves);
 			pokemon.save();
 
-			return await User.findOneAndUpdate({ _id: context.user._id }, { $addToSet: { pokemon: pokemon._id } }, { new: true });
+			return await User.findOneAndUpdate({ _id: userID }, { $addToSet: { pokemon: pokemon._id } }, { new: true });
 		},
 	},
 };
