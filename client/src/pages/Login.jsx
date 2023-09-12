@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_MATCHUPS } from "../utils/queries";
 
 import React from "react";
-import { Button, Layout, Menu, Typography } from "antd";
+import { Button, Layout, Menu, Typography, Form, Input } from "antd";
 const { Header, Content } = Layout;
 const Login = () => {
 	return (
-		<Content className="content">
+		<Content theme="dark" className="content">
 			<Typography.Title level={3}>Login</Typography.Title>
 			<Form name="login-form" initialValues={{ remember: true }} onFinish={onFinishLogin}>
 				<Form.Item name="username" label="Username" rules={[{ required: true, message: "Please enter your username" }]}>

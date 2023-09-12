@@ -1,0 +1,53 @@
+{
+	"currentList": {
+		"mega": [
+			{
+				"id": "MANECTRIC",
+				"types": ["Electric"],
+				"weather": ["rain"]
+			}
+		],
+		"ultra_beast": [
+			{
+				"id": "CELESTEELA",
+				"types": ["Steel", "Flying"],
+				"weather": ["windy", "snow"]
+			},
+			{
+				"id": "KARTANA",
+				"types": ["Grass", "Steel"],
+				"weather": ["sunny", "snow"]
+			}
+		],
+		"lvl3": [
+			{
+				"id": "MACHAMP",
+				"types": ["Fighting"],
+				"weather": ["cloudy"]
+			},
+			{
+				"id": "CAMERUPT",
+				"types": ["Fire", "Ground"],
+				"weather": ["sunny"]
+			},
+			{
+				"id": "METAGROSS",
+				"form": "METAGROSS",
+				"types": ["Steel", "Psychic"],
+				"weather": ["windy", "snow"]
+			},
+			{
+				"id": "TURTONATOR",
+				"form": "TURTONATOR",
+				"types": ["Fire", "Dragon"],
+				"weather": ["sunny", "windy"]
+			}
+		],
+		"lvl1": {
+			"id": "UNOWN",
+			"form": "UNOWN",
+			"types": ["Psychic"],
+			"weather": ["windy"]
+		}
+	}
+}

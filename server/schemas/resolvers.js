@@ -7,9 +7,14 @@ const resolvers = {
 			return await basePokemon.find({});
 		},
 		basepokemon: async (parent, { pokemonname }) => {
-			return await basePokemon.findOne({ pokemon_name: pokemonname }).populate("moves");
+			const moves = await basePokemonMoves.findOne({ pokemon_name: pokemonname });
+
+			return await basePokemon.findOne({ pokemon_name: pokemonname }).populate({ path: "moves", populate: { path: "fastMove chargedMoves" } });
 		},
 		basepokemonmoves: async (parent, { pokemonname }) => {
+			return await basePokemonMoves.find({});
+		},
+		basepokemonmove: async (parent, { pokemonname }) => {
 			return await basePokemonMoves.findOne({ pokemon_name: pokemonname });
 		},
 		chargedmoves: async () => {
