@@ -28,8 +28,8 @@ const userPokemonSchema = new Schema({
 		unique: false,
 	},
 	type: [String],
-	fastMove: { type: [Schema.Types.ObjectId], ref: "fastMove" },
-	chargedMoves: { type: [Schema.Types.ObjectId], ref: "chargedMove" },
+	fastMove: { type: Schema.Types.ObjectId, ref: "fastMove" },
+	chargedMoves: { type: Schema.Types.ObjectId, ref: "chargedMove" },
 });
 
 const userPokemon = model("userPokemon", userPokemonSchema);
