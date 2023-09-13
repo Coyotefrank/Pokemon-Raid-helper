@@ -18,7 +18,7 @@ const basePokemonSchema = new Schema({
 	},
 	form: {
 		type: String,
-		required: true,
+		required: false,
 		unique: false,
 	},
 	pokemon_id: {
@@ -29,7 +29,7 @@ const basePokemonSchema = new Schema({
 	pokemon_name: {
 		type: String,
 		required: true,
-		unique: false,
+		unique: true,
 	},
 	moves: {
 		type: Schema.Types.ObjectId,

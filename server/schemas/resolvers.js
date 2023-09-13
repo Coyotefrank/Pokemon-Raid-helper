@@ -7,21 +7,33 @@ const resolvers = {
 			return await basePokemon.find({});
 		},
 		basepokemon: async (parent, { pokemonname }) => {
-			return await basePokemon.findOne({ pokemon_name: pokemonname }).populate("moves");
+			//const pokemon = await basePokemonMoves.findOne({ pokemon_name: pokemonname });
+			//const moves = await basePokemon.findOne({ pokemon_name: pokemonname });
+			const pokemon = await basePokemon.findOne({ pokemon_name: pokemonname });
+			console.log(pokemon ? "FOUND" + pokemon : "NOT FOUND");
+			return pokemon;
 		},
 		basepokemonmoves: async (parent, { pokemonname }) => {
-			return await basePokemonMoves.findOne({ pokemon_name: pokemonname });
+			return await basePokemonMoves.find({});
 		},
-		chargedmoves: async () => {
-			return await chargedMove.find({});
+		basepokemonmove: async (parent, { pokemonname }) => {
+			//console.log("LOOKING FOR: " + pokemonname);
+			const pokemon = await basePokemonMoves.findOne({ pokemon_name: pokemonname });
+			//console.log(pokemon ? "FOUND" + pokemon : "NOT FOUND");
+			return pokemon;
 		},
-		fastmoves: async () => {
-			return await fastMove.find({});
+		chargedmove: async (parent, { name }) => {
+			return await chargedMove.findOne({ name });
 		},
-		user: async (parent, { userID }) => {
-			return await User.findOne({ _id: userID })
-				//.populate("pokemon")
+		fastmove: async (parent, { name }) => {
+			return await fastMove.findOne({ name });
+		},
+		user: async (parent, { email }) => {
+			const u = await User.findOne({ email })
+				.populate("pokemon")
 				.populate({ path: "pokemon", populate: { path: "fastMove chargedMoves" } });
+			console.log(u);
+			return u;
 		},
 	},
 	Mutation: {
@@ -42,10 +54,8 @@ const resolvers = {
 			return { token, user };
 		},
 		addPokemon: async (parent, { userID, pokemon_name, att, def, sta, pokemon_id, type, fastMove, chargedMoves }, context) => {
-			const pokemon = await userPokemon.create({ pokemon_name, att, def, sta, pokemon_id, type });
-			pokemon.fastMove.push(fastMove);
-			pokemon.chargedMoves.push(chargedMoves);
-			pokemon.save();
+			const pokemon = await userPokemon.create({ pokemon_name, att, def, sta, pokemon_id, fastMove, chargedMoves });
+			console.log(pokemon);
 
 			return await User.findOneAndUpdate({ _id: userID }, { $addToSet: { pokemon: pokemon._id } }, { new: true }).populate({ path: "pokemon", populate: { path: "fastMove chargedMoves" } });
 		},

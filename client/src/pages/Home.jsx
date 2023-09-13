@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_MATCHUPS } from "../utils/queries";
 
 import React from "react";
 import { Button, Layout, Menu, Typography } from "antd";
 const { Header, Content } = Layout;
 const Home = () => {
 	return (
-		<Content className="content">
+		<Content theme="dark" className="content">
 			<Typography.Title level={3}>About Us</Typography.Title>
 			<Typography.Paragraph>Welcome to Our Pokémon Raid Battle App!</Typography.Paragraph>
 			<Typography.Paragraph>We are a team of enthusiastic Pokémon enjoyers and developers who are dedicated to enhancing your Pokémon Raid Battle experience.</Typography.Paragraph>
