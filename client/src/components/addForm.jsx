@@ -13,18 +13,15 @@ const AddForm = (props) => {
 	} else if (error) {
 		return <div>Error</div>;
 	} else {
-		//const { data: basePokemonMoves, status } = useQuery(QUERY_GET_BASE_POKEMON_MOVES, { variables: { pokemon_name: "Charmader" } });
 		const filterOption = (input, option) => (option?.label ?? "").toLowerCase().includes(input.toLowerCase());
-
-		console.log("BASE Pokemon Move Data:", data);
-
+		const refreshPage = (page) => {
+			window.location.assign(page);
+		};
 		const fastMove = data.basepokemonmove?.fast_moves || [];
 		const fastMoveOptions = Array.from(fastMove, (move) => ({ value: move, label: move }));
 		const chargedMove = data.basepokemonmove?.charged_moves || [];
 		const chargedMoveOptions = Array.from(chargedMove, (move) => ({ value: move, label: move }));
 
-		//console.log("fastMoveOptions:", fastMoveOptions);
-		//console.log("chargedMoveOptions:", chargedMoveOptions);
 		return (
 			<>
 				{/* <h1>Hello</h1> */}
@@ -36,13 +33,12 @@ const AddForm = (props) => {
 					<Select showSearch placeholder="Charged Move" optionFilterProp="children" filterOption={filterOption} options={chargedMoveOptions} />
 				</Form.Item>
 
-				<Form.Item
-					wrapperCol={{
-						offset: 8,
-						span: 16,
-					}}>
-					<Button type="primary" htmlType="submit">
+				<Form.Item style={{ justifyContent: "space-around" }}>
+					<Button type="primary" className="proceed-button" htmlType="submit">
 						Submit
+					</Button>
+					<Button type="primary" className="proceed-button" onClick={() => refreshPage("/find")}>
+						Continue to Search
 					</Button>
 				</Form.Item>
 			</>
