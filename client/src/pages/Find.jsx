@@ -27,13 +27,13 @@ const currentList = [
 	},
 
 	{
-		id: 323,
+		id: 68,
 		name: "MACHAMP",
 		types: ["Fighting"],
 		weather: ["cloudy"],
 	},
 	{
-		id: 756,
+		id: 323,
 		name: "CAMERUPT",
 		types: ["Fire", "Ground"],
 		weather: ["sunny"],
