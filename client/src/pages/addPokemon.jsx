@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
-import { QUERY_ALL_BASE_POKEMON, QUERY_GET_BASE_POKEMON, QUERY_GET_BASE_POKEMON_MOVE, USER_POKEMON_FAST_MOVE, USER_POKEMON_CHARGED_MOVE } from "../utils/queries";
+import { QUERY_ALL_BASE_POKEMON, QUERY_GET_BASE_POKEMON, USER_POKEMON_FAST_MOVE, USER_POKEMON_CHARGED_MOVE } from "../utils/queries";
 import { MUTATION_ADD_USER_POKEMON } from "../utils/mutations";
 import { useState, useEffect } from "react";
 import { Button, Layout, Form, Input, InputNumber, Select } from "antd";
