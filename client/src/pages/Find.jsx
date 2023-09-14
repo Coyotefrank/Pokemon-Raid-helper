@@ -33,7 +33,7 @@ const currentList = [
 		weather: ["cloudy"],
 	},
 	{
-		id: "CAMERUPT",
+		id: 756,
 		name: "CAMERUPT",
 		types: ["Fire", "Ground"],
 		weather: ["sunny"],
@@ -78,13 +78,6 @@ const Find = () => {
 	};
 	return (
 		<Content theme="dark" className="content" class="addFormStyle">
-			{/* <Form name="basic" layout="vertical" style={{ maxWidth: 600 }} initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
-				{/* pokemon */}
-			{/*<Form.Item name="boss" rules={[{ required: true, message: "Please input your Pokemon!" }]}>
-					
-				{/*</Form.Item>
-			{/*</Form> */}
-
 			{!pokemonInput ? <Select showSearch placeholder="Raid Boss:" optionFilterProp="children" onChange={onChange} filterOption={filterOption} options={currentList.map((x) => ({ value: x.id, label: x.name }))} /> : <BestP boss={pokemonInput} />}
 		</Content>
 	);
