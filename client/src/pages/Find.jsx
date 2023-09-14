@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
-import { QQUERY_USER } from "../utils/queries";
+import { QUERY_USER } from "../utils/queries";
 import { useState, useEffect } from "react";
 import { Button, Layout, Form, Input, InputNumber, Select } from "antd";
 const { Header, Content } = Layout;
