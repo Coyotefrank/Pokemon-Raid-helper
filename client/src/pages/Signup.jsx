@@ -21,6 +21,7 @@ const Signup = () => {
 		});
 		const token = mutationResponse.data.addUser.token;
 		Auth.login(token);
+		window.location.assign("/login");
 	};
 	return (
 		<Content theme="dark" className="content" class="addFormStyle">
