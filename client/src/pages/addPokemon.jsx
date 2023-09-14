@@ -7,7 +7,6 @@ const { Header, Content } = Layout;
 import AddForm from "../components/addForm";
 import Auth from "../utils/auth";
 const Add = () => {
-	// Filter `option.label` match the user type `input`
 	const { data = { basepokemons: { pokemon_name: "" } }, status } = useQuery(QUERY_ALL_BASE_POKEMON);
 	const [getBasePokemon, { data: basepokemon = { bp: { base_attack: 0, base_defense: 0, base_stamina: 0, form: "" } }, loading, error }] = useLazyQuery(QUERY_GET_BASE_POKEMON);
 	const [savePokemon, { data: res, loading: load, error: err }] = useMutation(MUTATION_ADD_USER_POKEMON);
@@ -76,7 +75,9 @@ const Add = () => {
 		const onSearch = (value) => {
 			console.log("search:", value);
 		};
-
+		const refreshPage = (page) => {
+			window.location.assign(page);
+		};
 		return (
 			<Content theme="dark" className="content" class="addFormStyle">
 				<Form name="basic" layout="vertical" style={{ maxWidth: 600 }} initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
@@ -106,13 +107,12 @@ const Add = () => {
 							<Form.Item>
 								<Select showSearch placeholder="Charged Move" optionFilterProp="children" filterOption={filterOption} options={opts} />
 							</Form.Item>
-							<Form.Item
-								wrapperCol={{
-									offset: 8,
-									span: 16,
-								}}>
+							<Form.Item style={{ justifyContent: "space-around" }}>
 								<Button type="primary" htmlType="submit">
 									Submit
+								</Button>
+								<Button type="primary" className="proceed-button" onClick={() => refreshPage("/find")}>
+									Continue to Search
 								</Button>
 							</Form.Item>
 						</>

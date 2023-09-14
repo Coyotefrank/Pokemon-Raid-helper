@@ -2,7 +2,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	align-items: center;
 	width: 80vw;
-	height: 70vh;
+	margin-inline: auto;
+	height: 100vh;
+	flex-direction: column;
+}
+
+.header {
+	color: white;
+	margin-inline: auto;
+	margin-block: 0px;
 }
